@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu - Abuare</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .menu-section {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            margin: 30px 0;
+            padding: 30px;
+            animation: fadeInUp 1s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .menu-section h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #D00000;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(208, 0, 0, 0.3);
+        }
+
+        .menu-item strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .menu-item span {
+            display: block;
+            margin-top: 10px;
+            color: #D00000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Menu</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="reservation.html">Reservations</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="testimonials.html">Testimonials</a>
+    </nav>
+</header>
+
+<main>
+    <h2>Our Menu</h2>
+    <p>Explore our delicious Ethiopian dishes and specials. (This is a placeholder — updated version coming soon!)</p>
+
+    <!-- Appetizers -->
+    <section class="menu-section">
+        <h3>🥟 Appetizers</h3>
+        <div class="menu-items">
+            <div class="menu-item">
+                <strong>Lentil Sambusa</strong>
+                Deep fried pastry with lentils, onion & jalapeno
+                <span>$3</span>
+            </div>
+            <div class="menu-item">
+                <strong>Meat Sambusa</strong>
+                Filled with seasoned beef, onion & jalapeno
+                <span>$3.5</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Veggie Favorites -->
+    <section class="menu-section">
+        <h3>🌿 Veggie Favorites</h3>
+        <div class="menu-items">
+            <div class="menu-item"><strong>Vegetarian Combo</strong> Includes Red Lentils, Collard Greens, Cabbage, and more <span>$23</span></div>
+            <div class="menu-item"><strong>Chickpeas (Shiro)</strong> Rich chickpea stew spiced with olive oil <span>$16</span></div>
+            <div class="menu-item"><strong>Red Lentils (Miser)</strong> In berbere sauce with garlic & ginger <span>$16</span></div>
+            <div class="menu-item"><strong>Collard Greens (Gomen)</strong> Sautéed with onion & garlic <span>$16</span></div>
+            <div class="menu-item"><strong>Yellow Split Pea (Ater)</strong> Stewed in seasoned sauce <span>$16</span></div>
+            <div class="menu-item"><strong>Cabbage and Carrot</strong> With turmeric, onion, garlic <span>$16</span></div>
+            <div class="menu-item"><strong>Beets</strong> With tomato, garlic & ginger <span>$16</span></div>
+        </div>
+    </section>
+
+    <!-- Meaty Mains -->
+    <section class="menu-section">
+        <h3>🍖 Meaty Mains</h3>
+        <div class="menu-items">
+            <div class="menu-item"><strong>Kitfo</strong> Spicy minced beef with niter kibbeh <span>$25</span></div>
+            <div class="menu-item"><strong>Awaze Tibs</strong> Ribeye sautéed in hot pepper sauce <span>$23</span></div>
+            <div class="menu-item"><strong>Abuare Special Tibs</strong> Tender beef in our secret spiced oil blend <span>$25</span></div>
+            <div class="menu-item"><strong>Deluxe Combo</strong> 6 veggies + 1 meat <span>$40</span></div>
+            <div class="menu-item"><strong>Doro Wot</strong> Spicy chicken leg stew in berbere sauce <span>$25</span></div>
+            <div class="menu-item"><strong>Meat Lovers</strong> Choose any 2 meats <span>$50</span></div>
+            <div class="menu-item"><strong>50/50</strong> Half beef tibs, half chicken <span>$28</span></div>
+        </div>
+    </section>
+
+    <!-- Extras & Sweets -->
+    <section class="menu-section">
+        <h3>🍰 Sides & Sweets</h3>
+        <div class="menu-items">
+            <div class="menu-item"><strong>Pasta with Tomato Sauce</strong> <span>$18</span></div>
+            <div class="menu-item"><strong>Tiramisu</strong> <span>$4.99</span></div>
+            <div class="menu-item"><strong>Baklava</strong> <span>$4.99</span></div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/abuarerestaurant/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61552303880004" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.tiktok.com/@abuarerestaurant" target="_blank" aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+        </a>
+    </div>
+    <p>&copy; 2025 Abuare Restaurant. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

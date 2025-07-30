@@ -1,0 +1,638 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(90deg, #008000, #FFD700, #D00000);
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header img.logo {
+    height: 180px;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto 5px auto;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+main {
+    flex: 1;
+    padding: 40px 20px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 30px auto;
+    background-color: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border-radius: 12px;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+section h2 {
+    color: #D00000;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+ul li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #008000;
+    font-size: 1.1rem;
+}
+
+.social-icons a {
+    color: #333;
+    font-size: 2.2rem;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #D00000;
+}
+
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 25px 10px;
+    font-size: 0.9rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+@media (max-width: 700px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+/* Testimonials card layout */
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.testimonial-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+.testimonial-card h3 {
+    margin-top: 0;
+    color: #D00000;
+    font-size: 1.2rem;
+}
+
+.stars {
+    color: #FFD700;
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.testimonial-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.testimonial-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.testimonial-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.testimonial-card:nth-child(4) {
+    animation-delay: 0.6s;
+}
+.testimonial-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(208, 0, 0, 0.3); /* red glow on hover */
+}
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.reservation-form input,
+.reservation-form button {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.reservation-form input:focus {
+    outline: none;
+    border-color: #D00000;
+    box-shadow: 0 0 8px rgba(208, 0, 0, 0.4);
+}
+
+.reservation-form button {
+    background: linear-gradient(90deg, #008000, #FFD700, #D00000);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.reservation-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(208, 0, 0, 0.3);
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.contact-card,
+.contact-form {
+    flex: 1 1 300px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.contact-card h3,
+.contact-form h3 {
+    margin-top: 0;
+    color: #D00000;
+    margin-bottom: 15px;
+}
+
+.contact-card p a {
+    color: #D00000;
+    text-decoration: none;
+}
+
+.contact-card p a:hover {
+    text-decoration: underline;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #D00000;
+    box-shadow: 0 0 8px rgba(208, 0, 0, 0.4);
+}
+
+.contact-form button {
+    background: linear-gradient(90deg, #008000, #FFD700, #D00000);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(208, 0, 0, 0.3);
+}
+
+section.map iframe {
+    width: 100%;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero section with background */
+.hero {
+    background: url('../photos/2025-07-22-00.19.48.jpg') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* dark overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeInUp 1s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* optional: adds soft shadow for better contrast */
+}
+
+
+
+.specials-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    flex: 1 1 250px;
+    text-align: center;
+    animation: fadeInUp 1s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(208, 0, 0, 0.3);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.owners {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.owners-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+}
+
+.owners-content img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.owners-content img:hover {
+    transform: scale(1.05);
+}
+
+.owners-text p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+@media (min-width: 700px) {
+    .owners-content {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+
+    .owners-content img {
+        margin-right: 30px;
+        margin-bottom: 0;
+    }
+
+    .owners-text {
+        flex: 1;
+    }
+}
+/* About hero banner */
+.about-hero {
+    background: url('../photos/474779976_122205886490076796_5898054233171735384_n.jpg') center/cover no-repeat;
+    padding: 80px 20px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.about-hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.about-hero .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-section {
+    max-width: 800px;
+    margin: 30px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.about-section p {
+    line-height: 1.6;
+}
+
+.success-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    animation: fadeInUp 1s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.success-container h1 {
+    color: #008000;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.success-container p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.btn-gradient {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #008000, #FFD700, #D00000);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(208, 0, 0, 0.3);
+}
+
+/* Hours Section */
+.hours {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+}
+
+.hours h2 {
+    color: #D00000;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.hours p {
+    margin: 10px 0;
+    line-height: 1.5;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Popular Times Section */
+.popular-times {
+    background: #1e1e1e;
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.popular-times h2 {
+    margin-bottom: 15px;
+    color: #FFD700;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+/* Bar Chart */
+.bar-chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 130px;
+    padding: 0 10px;
+    background-color: #2b2b2b;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.bar {
+    width: 10%;
+    background: linear-gradient(180deg, #999, #555);
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.bar.active {
+    background: linear-gradient(180deg, #ff5a5a, #d00000);
+}
+
+.bar:hover {
+    background: linear-gradient(180deg, #FFD700, #d4a017);
+    transform: scaleY(1.05);
+}
+
+/* Tooltip on Hover */
+.bar::after {
+    content: attr(title);
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 3px 6px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.bar:hover::after {
+    opacity: 1;
+}
+
+/* Time Labels */
+.time-labels {
+    display: flex;
+    justify-content: space-between;
+    color: #bbb;
+    font-size: 0.9rem;
+}
