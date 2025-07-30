@@ -6,21 +6,7 @@ const fsp = fs.promises;
 const nodemailer = require('nodemailer');
 
 const app = express();
-const PORT = process.env.PORT || 8081;
-
-const cors = require('cors');
-
-app.use(cors({
-  origin: ['https://www.abuarebarandrestaurant.com/', 'https://abuarebarandrestaurant.com/','http://localhost:3000' ],
-  methods: ['POST'],
-  credentials: false
-}));
-
-
-
-
-
-
+const PORT = process.env.PORT || 3000;
 
 // ---------- Middleware
 app.use(express.urlencoded({ extended: true }));
