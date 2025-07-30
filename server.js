@@ -28,20 +28,19 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Health check (optional)
+// ---------- Health check (optional)
 app.get('/health', (_req, res) => res.send('OK'));
 
 // ---------- POST /reservation
 app.post('/reservation', async (req, res) => {
-  const { name, email, date, time, tables, guests } = req.body;
-  const guestCount = guests ?? tables; // support either field name
+  const { name, email, date, time, tables } = req.body;
+  const guestCount = tables; // expected field from frontend
 
   if (!name || !email || !date || !time || !guestCount) {
     console.error('❌ Missing reservation fields:', req.body);
-    return res.redirect('/reservation-failed.html');
+    return res.status(400).json({ success: false, error: 'Missing fields' });
   }
 
-  // Save reservation
   try {
     const filePath = path.join(__dirname, 'reservations.json');
     const existing = fs.existsSync(filePath)
@@ -64,7 +63,7 @@ app.post('/reservation', async (req, res) => {
     // Send emails
     const adminMail = {
       from: process.env.SMTP_USER,
-      to: process.env.ADMIN_EMAIL,
+      to: process.env.ADMIN_EMAIL || process.env.SMTP_USER,
       subject: `New Reservation from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nDate: ${date}\nTime: ${time}\nGuests: ${guestCount}`
     };
@@ -80,34 +79,11 @@ app.post('/reservation', async (req, res) => {
     await transporter.sendMail(userMail);
     console.log('📧 Reservation emails sent!');
 
-    // ---------- Show confirmation page (instead of redirecting)
-    return res.send(`
-      <!doctype html>
-      <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Reservation Confirmed</title>
-      </head>
-      <body style="background: #f7efe9; margin: 0; padding: 0;">
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 30px; background-color: #fff8f0; border: 2px solid #b4442f; border-radius: 12px; text-align: center;">
-          <h1 style="color: #b4442f;">🍷 Thank you, ${escapeHtml(name)}!</h1>
-          <p style="font-size: 1.1em; color: #333;">
-            Your reservation for <strong>${escapeHtml(guestCount)}</strong> guest(s) on <strong>${escapeHtml(date)}</strong> at <strong>${escapeHtml(time)}</strong> has been received.
-          </p>
-          <p style="margin-top: 15px; color: #555;">
-            We’ve sent a confirmation email to: <strong>${escapeHtml(email)}</strong>
-          </p>
-          <a href="/" style="display: inline-block; margin-top: 25px; padding: 10px 20px; background-color: #b4442f; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold;">
-            ⬅️ Back to Home
-          </a>
-        </div>
-      </body>
-      </html>
-    `);
+    // Respond with success so JS can redirect
+    return res.status(200).json({ success: true });
   } catch (e) {
-    console.error('❌ Reservation flow failed:', e);
-    return res.redirect('/reservation-failed.html');
+    console.error('❌ Reservation failed:', e);
+    return res.status(500).json({ success: false, error: 'Server error' });
   }
 });
 
@@ -117,12 +93,12 @@ app.post('/contact', async (req, res) => {
 
   if (!name || !email || !message) {
     console.error('❌ Missing contact fields:', req.body);
-    return res.redirect('/contact-failed.html');
+    return res.status(400).json({ success: false, error: 'Missing fields' });
   }
 
   const mailOptions = {
     from: process.env.SMTP_USER,
-    to: process.env.ADMIN_EMAIL,
+    to: process.env.ADMIN_EMAIL || process.env.SMTP_USER,
     subject: `New Contact Message from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
   };
@@ -130,29 +106,19 @@ app.post('/contact', async (req, res) => {
   try {
     await transporter.sendMail(mailOptions);
     console.log('📧 Contact message sent:', { name, email, message });
-    return res.redirect('/contact-success.html');
+    return res.status(200).json({ success: true });
   } catch (err) {
     console.error('❌ Contact email error:', err);
-    return res.redirect('/contact-failed.html');
+    return res.status(500).json({ success: false, error: 'Email failed' });
   }
 });
 
-// ---------- 404
+// ---------- 404 fallback
 app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
-// ---------- Start
+// ---------- Start the server
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
-
-// ---------- tiny helper to avoid simple HTML injection in the confirmation page
-function escapeHtml(str) {
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
-}
