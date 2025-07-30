@@ -79,8 +79,9 @@ app.post('/reservation', async (req, res) => {
     await transporter.sendMail(userMail);
     console.log('📧 Reservation emails sent!');
 
-    // Respond with success so JS can redirect
-    return res.status(200).json({ success: true });
+    // 👇 Redirect to static success page
+    return res.redirect('/reservation-success.html');
+
   } catch (e) {
     console.error('❌ Reservation failed:', e);
     return res.status(500).json({ success: false, error: 'Server error' });
