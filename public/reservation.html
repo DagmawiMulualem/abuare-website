@@ -97,19 +97,16 @@
 </header>
 
 <main>
-  <h2>Make a Reservation</h2>
-  <form id="reservationForm" class="reservation-form">
-    <input type="text" id="name" name="name" placeholder="Your Name" required>
-    <input type="email" id="email" name="email" placeholder="Your Email" required>
-    <input type="date" id="date" name="date" required>
-    <input type="time" id="time" name="time" required>
-    <input type="number" id="tables" name="tables" placeholder="Number of Tables" required>
-    <button type="submit">Reserve Table</button>
-  </form>
+    <h2>Make a Reservation</h2>
+    <form class="reservation-form" action="http://localhost:3000/reservation" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="date" name="date" required>
+        <input type="time" name="time" required>
+        <input type="number" name="tables" placeholder="Number of Tables" required>
+        <button type="submit">Reserve Table</button>
+    </form>
 </main>
-
-<script src="js/reservation.js"></script>
-
 
 <footer>
     <div class="social-icons">
