@@ -12,12 +12,15 @@ html, body {
 }
 
 header {
-    background: linear-gradient(90deg, #008000, #FFD700, #D00000);
+    background: linear-gradient(90deg, #008000, #FFD700, #D00000); /* Green to Yellow to Red */
     color: white;
     text-align: center;
     padding: 10px 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
 }
+
 
 header img.logo {
     height: 180px;
@@ -111,7 +114,10 @@ footer {
     text-align: center;
     padding: 25px 10px;
     font-size: 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
 }
+
 
 img {
     max-width: 100%;
