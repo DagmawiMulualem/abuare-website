@@ -636,3 +636,78 @@ section.map iframe {
     color: #bbb;
     font-size: 0.9rem;
 }
+.signature-gallery {
+  padding: 40px;
+  text-align: center;
+}
+
+.signature-gallery h2 {
+  font-size: 2.5em;
+  color: #c30000;
+  margin-bottom: 10px;
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.signature-gallery .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.signature-gallery img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.signature-gallery img:nth-child(1) { animation-delay: 0.1s; }
+.signature-gallery img:nth-child(2) { animation-delay: 0.2s; }
+.signature-gallery img:nth-child(3) { animation-delay: 0.3s; }
+.signature-gallery img:nth-child(4) { animation-delay: 0.4s; }
+.signature-gallery img:nth-child(5) { animation-delay: 0.5s; }
+.signature-gallery img:nth-child(6) { animation-delay: 0.6s; }
+.signature-gallery img:nth-child(7) { animation-delay: 0.7s; }
+.signature-gallery img:nth-child(8) { animation-delay: 0.8s; }
+.signature-gallery img:nth-child(9) { animation-delay: 0.9s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.gallery figure {
+  text-align: center;
+  max-width: 280px; /* was 200px */
+  width: 100%;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gallery figcaption {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+}
+
+
