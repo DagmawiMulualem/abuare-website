@@ -94,14 +94,14 @@ ul li::before {
 }
 
 .social-icons a {
-    color: #333;
+    color: #f2f2f2;
     font-size: 2.2rem;
     margin: 0 15px;
     transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: #D00000;
+    color: #f7ff02;
 }
 
 
@@ -322,7 +322,7 @@ section.map iframe {
 
 /* Hero section with background */
 .hero {
-    background: url('../photos/2025-07-22-00.19.48.jpg') center/cover no-repeat;
+    background: url('../photos/474637067_122205738530076796_2664962827892730582_n.jpg') center/cover no-repeat;
     color: white;
     text-align: center;
     padding: 100px 20px;
